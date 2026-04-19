@@ -11,18 +11,17 @@
     * { margin:0; padding:0; box-sizing:border-box; }
 
     body {
-      height:100vh;
-      overflow:hidden;
+      min-height:100vh;
       font-family:'Poppins', sans-serif;
       display:flex;
       justify-content:center;
       align-items:center;
       color:white;
       text-align:center;
+      padding:20px;
       background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb);
     }
 
-    /* Romantic Blurred Background */
     .bg {
       position:fixed;
       width:100%;
@@ -32,37 +31,70 @@
         url('Lakshmi.jpg');
       background-size:cover;
       background-position:center;
-      filter:blur(14px) brightness(0.6);
+      filter:blur(12px) brightness(0.6);
       z-index:0;
     }
 
     .container {
       position:relative;
       z-index:2;
-      padding:30px;
+      padding:20px;
       border-radius:20px;
-      backdrop-filter: blur(12px);
-      background: rgba(255,255,255,0.12);
-      box-shadow:0 0 40px rgba(255,105,180,0.3);
+      backdrop-filter: blur(10px);
+      background: rgba(255,255,255,0.15);
+      box-shadow:0 0 30px rgba(255,105,180,0.3);
+      max-width:400px;
+      width:100%;
     }
 
     img {
-      width:260px;
+      width:100%;
+      max-width:240px;
       border-radius:15px;
       margin-bottom:15px;
-      box-shadow:0 0 25px rgba(255,182,193,0.6);
+      box-shadow:0 0 20px rgba(255,182,193,0.6);
     }
 
     h1 {
       font-family:'Great Vibes', cursive;
-      font-size:3.2rem;
-      text-shadow:0 0 15px rgba(255,105,180,0.8);
+      font-size:2.5rem;
+      text-shadow:0 0 10px rgba(255,105,180,0.8);
     }
 
     .message {
       margin-top:15px;
-      font-size:1.9rem;
+      font-size:1.1rem;
+      line-height:1.6;
       color:#ffe4ec;
+    }
+
+    button {
+      position:fixed;
+      bottom:15px;
+      right:15px;
+      padding:10px 14px;
+      font-size:0.9rem;
+      border:none;
+      border-radius:20px;
+      background:#ff6b81;
+      color:white;
+      cursor:pointer;
+      box-shadow:0 0 10px rgba(0,0,0,0.3);
+    }
+
+    /* 📱 Mobile specific tweaks */
+    @media (max-width: 480px) {
+      h1 {
+        font-size:2.2rem;
+      }
+
+      .message {
+        font-size:1rem;
+      }
+
+      img {
+        max-width:200px;
+      }
     }
 
   </style>
@@ -73,28 +105,27 @@
 
   <div class="container">
     <img src="Lakshmi.jpg" alt="Lakshmi">
-    <h1>Lakshmi</h1>
-   <div class="message">
-  I won’t lie…<br>
-  you were the most captivating person in the party yesterday night ✨<br><br>
+    <h1>Lakshmi ❤️</h1>
 
-  There was something about you…<br>
-  the way you smiled, the way you carried yourself —<br>
-  it just stayed with me.<br><br>
+    <div class="message">
+      I won’t lie…<br>
+      you were the most captivating person in the party yesterday night ✨<br><br>
 
-  You didn’t just look beautiful…<br>
-  you felt unforgettable ✨
-</div>
+      There was something about you…<br>
+      the way you smiled, the way you carried yourself —<br>
+      it just stayed with me.<br><br>
 
-  <!-- Romantic Music -->
+      You didn’t just look beautiful…<br>
+      you felt unforgettable ✨
+    </div>
+  </div>
+
+  <!-- Music -->
   <audio id="bgMusic" loop>
     <source src="romantic_guitar.mp3" type="audio/mpeg">
   </audio>
 
-  <!-- Music Button -->
-  <button onclick="toggleMusic()" style="position:fixed; bottom:20px; right:20px; padding:10px 15px; border:none; border-radius:20px; background:#ff6b81; color:white; cursor:pointer; box-shadow:0 0 10px rgba(0,0,0,0.3);">
-    🎵 Play Music
-  </button>
+  <button onclick="toggleMusic()">🎵 Music</button>
 
   <script>
     const music = document.getElementById('bgMusic');
